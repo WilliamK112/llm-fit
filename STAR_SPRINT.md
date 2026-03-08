@@ -27,7 +27,7 @@
 - [ ] Draft v0.2 release notes
 
 ## BLOCKERS
-- Need final GitHub repo URL to replace `YOUR_USER/llm-fit`
+- None right now.
 
 ## KPI
 - Day 1 target: first 20⭐
