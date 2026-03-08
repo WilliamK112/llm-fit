@@ -1,0 +1,16 @@
+{
+  "name": "llm-fit",
+  "version": "0.1.0",
+  "description": "Can my laptop run this model? Instant local LLM fit + speed estimator.",
+  "type": "module",
+  "bin": {
+    "llm-fit": "./src/cli.mjs"
+  },
+  "scripts": {
+    "cli": "node src/cli.mjs",
+    "web": "node scripts/web-server.mjs",
+    "start": "node scripts/web-server.mjs"
+  },
+  "keywords": ["llm", "ollama", "vllm", "llama.cpp", "ai", "inference"],
+  "license": "MIT"
+}
