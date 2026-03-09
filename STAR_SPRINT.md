@@ -2,7 +2,7 @@
 
 ## Progress
 
-- **Build progress:** `█████░░░░░ 50%` (macOS auto-detect engine added)
+- **Build progress:** `██████░░░░ 60%` (`--detect` CLI mode wired)
 - **Launch readiness:** `███░░░░░░░ 30%` (positioning clearer; links still pending)
 - **Star progress:** `░░░░░░░░░░ 0%` (0 / 1000)
 
@@ -10,16 +10,16 @@
 
 - [x] MVP scaffold (CLI + local web + launch copy)
 - [ ] Auto hardware detection (macOS first)
-- [ ] `--detect` CLI mode
+- [x] `--detect` CLI mode
 - [x] README differentiation section vs benchmark-only tools
 - [ ] Launch links finalized + publish
 - [ ] Day-1 feedback loop release (v0.2)
 
 ## NOW
 - [x] Add auto hardware detection (macOS first)
-- [ ] Add `--detect` CLI mode
-- [ ] Add README section: "How we differ from ollama-benchmark"
-- [ ] Replace placeholder GitHub links in `LAUNCH_POSTS.md`
+- [x] Add `--detect` CLI mode
+- [x] Add README section: "How we differ from ollama-benchmark"
+- [x] Replace placeholder GitHub links in `LAUNCH_POSTS.md`
 
 ## NEXT
 - [ ] Add benchmark submission JSON format
