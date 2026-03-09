@@ -2,8 +2,8 @@
 
 ## Progress
 
-- **Build progress:** `██████░░░░ 60%` (`--detect` CLI mode wired)
-- **Launch readiness:** `███░░░░░░░ 30%` (positioning clearer; links still pending)
+- **Build progress:** `███████░░░ 70%` (`--detect` + benchmark submission format done)
+- **Launch readiness:** `█████░░░░░ 50%` (docs/readiness improving; distribution next)
 - **Star progress:** `░░░░░░░░░░ 0%` (0 / 1000)
 
 ## Milestones
@@ -22,7 +22,7 @@
 - [x] Replace placeholder GitHub links in `LAUNCH_POSTS.md`
 
 ## NEXT
-- [ ] Add benchmark submission JSON format
+- [x] Add benchmark submission JSON format
 - [ ] Add badges + screenshot/GIF to README
 - [ ] Draft v0.2 release notes
 

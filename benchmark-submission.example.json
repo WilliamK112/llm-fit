@@ -1,0 +1,27 @@
+{
+  "machine": {
+    "name": "MacBook Pro 14",
+    "chip": "Apple M3 Pro",
+    "ramGB": 18,
+    "vramGB": 9,
+    "platform": "apple-silicon",
+    "os": "macOS 15"
+  },
+  "runtime": {
+    "tool": "ollama",
+    "toolVersion": "0.7.x",
+    "quant": "Q4_K_M"
+  },
+  "model": {
+    "name": "qwen2.5:7b",
+    "paramsB": 7
+  },
+  "result": {
+    "promptTokens": 512,
+    "outputTokens": 256,
+    "tokensPerSecond": 48.3,
+    "notes": "local test, default settings"
+  },
+  "submittedAt": "2026-03-09T05:45:00Z",
+  "submittedBy": "github-username"
+}

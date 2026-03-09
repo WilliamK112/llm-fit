@@ -57,9 +57,18 @@ Most Ollama/llama.cpp benchmark repos answer: **"How fast did model X run on mac
 
 So benchmarks are about *measurement after setup*; `llm-fit` is about *choosing before setup*.
 
+## Community benchmark submissions
+
+A standard submission template is included:
+- `benchmark-submission.example.json`
+- contribution guide: `CONTRIBUTING.md`
+
+This lets us improve estimator quality with real hardware data.
+
 ## Next milestones
 
 - [ ] Auto-detect machine hardware
+- [x] Add benchmark submission JSON format
 - [ ] Pull benchmark data from community submissions
 - [ ] Add GGUF quant-specific estimates (Q2_K/Q4_K_M/Q8_0)
 - [ ] One-click export for Ollama / vLLM / llama.cpp
