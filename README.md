@@ -19,6 +19,12 @@ cd llm-fit
 npm run cli -- --ram=16 --vram=8 --cpu=mid --platform=apple-silicon
 ```
 
+Auto-detect (macOS):
+
+```bash
+npm run cli -- --detect
+```
+
 ## Web demo (local)
 
 ```bash
@@ -57,6 +63,14 @@ So benchmarks are about *measurement after setup*; `llm-fit` is about *choosing 
 - [ ] Pull benchmark data from community submissions
 - [ ] Add GGUF quant-specific estimates (Q2_K/Q4_K_M/Q8_0)
 - [ ] One-click export for Ollama / vLLM / llama.cpp
+
+## Run from anywhere
+
+```bash
+cd llm-fit
+npm link
+llm-fit --detect
+```
 
 ## License
 MIT

@@ -19,7 +19,11 @@ const profile = args.detect
 const rows = estimateFit(profile);
 
 console.log('\nllm-fit — Can my laptop run this model?\n');
-console.log(`Profile: RAM ${profile.ramGB}GB | VRAM ${profile.vramGB}GB | CPU ${profile.cpuTier} | ${profile.platform}${args.detect ? ` | detect:${profile.source}` : ''}\n`);
+console.log(`Profile: RAM ${profile.ramGB}GB | VRAM ${profile.vramGB}GB | CPU ${profile.cpuTier} | ${profile.platform}${args.detect ? ` | detect:${profile.source}` : ''}`);
+if (args.detect && profile.chip) {
+  console.log(`Detected chip: ${profile.chip}`);
+}
+console.log('');
 
 for (const r of rows) {
   console.log(`${r.status}  ${r.name}`);
