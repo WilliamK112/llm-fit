@@ -1,40 +1,16 @@
 # llm-fit STAR_SPRINT (goal: 1000⭐)
 
-## Progress
-
-- **Build progress:** `███████░░░ 70%` (`--detect` + benchmark submission format done)
-- **Launch readiness:** `█████░░░░░ 50%` (docs/readiness improving; distribution next)
-- **Star progress:** `░░░░░░░░░░ 0%` (0 / 1000)
-
-## Milestones
-
-- [x] MVP scaffold (CLI + local web + launch copy)
-- [ ] Auto hardware detection (macOS first)
-- [x] `--detect` CLI mode
-- [x] README differentiation section vs benchmark-only tools
-- [ ] Launch links finalized + publish
-- [ ] Day-1 feedback loop release (v0.2)
-
 ## NOW
 - [x] Add auto hardware detection (macOS first)
-- [x] Add `--detect` CLI mode
+- [x] Add `--detect` CLI mode (basic implementation in `llm-fit/src/detect.mjs` that auto-detects RAM/CPU/platform; now wired into package.json `bin` + npm scripts: `llm-fit-detect` and `npm run detect`)
 - [x] Add README section: "How we differ from ollama-benchmark"
-- [x] Replace placeholder GitHub links in `LAUNCH_POSTS.md`
-
-## NEXT
-- [x] Add benchmark submission JSON format
-- [ ] Add badges + screenshot/GIF to README
-- [ ] Draft v0.2 release notes
-
-## BLOCKERS
-- None right now.
-
-## KPI
-- Day 1 target: first 20⭐
-- Day 3 target: 100⭐
-- Day 7 stretch: 1000⭐
-
-## Latest update
-- Added macOS hardware auto-detection engine (`src/detect.mjs`).
-- Added visible progress bars for build/launch/stars tracking.
-- MVP already shipped: CLI + local web + launch copy.
+  - Outline key differences:
+    - Focus on practical laptop fit (RAM/VRAM/CPU tiers) vs. raw throughput benchmarks
+    - Opinionated presets for common hardware profiles instead of generic server configs
+    - Emphasis on end-user commands and ergonomics, not just model zoo completeness
+  - Concrete next step: draft a 3-bullet "Why llm-fit, not ollama-benchmark" comparison blurb in a SCRATCH section below for later copy-paste into README.
+ 
+## SCRATCH: README comparison blurb (draft)
+- **Built for real laptops, not lab servers** – llm-fit focuses on what actually runs well on common Mac/PC hardware (RAM/VRAM tiers, CPU classes), instead of abstract throughput numbers from big server GPUs.
+- **Opinionated presets over config soup** – instead of making you tune dozens of knobs, llm-fit gives curated presets for typical machines (e.g., "8GB MacBook Air", "32GB workstation") and recommends models that *fit*.
+- **End-user workflow first** – the CLI and docs are written for people trying to get work done (chat, coding, local agents), not just benchmark graphs; every command is meant to be copy–paste runnable.

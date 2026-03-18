@@ -11,7 +11,7 @@ Input RAM/VRAM + platform → get:
 - estimated tok/s
 - exact run command (Ollama/vLLM)
 
-GitHub: https://github.com/WilliamK112/llm-fit
+GitHub: https://github.com/YOUR_USER/llm-fit
 
 If useful, a ⭐ helps a lot.
 
@@ -30,7 +30,7 @@ Current inputs:
 
 Would love feedback on model coverage and quantization presets.
 
-Repo: https://github.com/WilliamK112/llm-fit
+Repo: https://github.com/YOUR_USER/llm-fit
 
 ## Show HN
 
@@ -43,4 +43,4 @@ So I built llm-fit, a lightweight estimator for local model fit + expected speed
 You input hardware profile, it returns likely compatible models and runnable commands.
 
 Open source, MIT:
-https://github.com/WilliamK112/llm-fit
+https://github.com/YOUR_USER/llm-fit

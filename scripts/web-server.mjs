@@ -6,7 +6,6 @@ import { estimateFit } from '../src/core.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const webRoot = path.resolve(__dirname, '../web');
-const sprintPath = path.resolve(__dirname, '../STAR_SPRINT.md');
 const port = Number(process.env.PORT || 4173);
 
 const server = http.createServer(async (req, res) => {
@@ -23,18 +22,6 @@ const server = http.createServer(async (req, res) => {
     const data = estimateFit(profile);
     res.setHeader('Content-Type', 'application/json');
     return res.end(JSON.stringify({ profile, data }));
-  }
-
-  if (req.url.startsWith('/api/progress')) {
-    const markdown = await fs.readFile(sprintPath, 'utf8');
-    const line = (prefix) => markdown.split('\n').find((l) => l.includes(prefix)) || '';
-
-    const build = line('Build progress');
-    const launch = line('Launch readiness');
-    const stars = line('Star progress');
-
-    res.setHeader('Content-Type', 'application/json');
-    return res.end(JSON.stringify({ build, launch, stars, markdown }));
   }
 
   const filePath = req.url === '/' ? path.join(webRoot, 'index.html') : path.join(webRoot, req.url);

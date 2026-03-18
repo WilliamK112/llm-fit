@@ -19,12 +19,6 @@ cd llm-fit
 npm run cli -- --ram=16 --vram=8 --cpu=mid --platform=apple-silicon
 ```
 
-Auto-detect (macOS):
-
-```bash
-npm run cli -- --detect
-```
-
 ## Web demo (local)
 
 ```bash
@@ -46,40 +40,18 @@ npm start
 - `--cpu=low|mid|high`
 - `--platform=apple-silicon|nvidia|amd|cpu`
 
-## How this differs from benchmark-only tools
+## How we differ from ollama-benchmark
 
-Most Ollama/llama.cpp benchmark repos answer: **"How fast did model X run on machine Y?"**
-
-`llm-fit` focuses on the earlier decision moment:
-- **Can I run it at all?** (fit classification)
-- **What should I try first?** (starter command)
-- **Roughly how fast will it be?** (instant estimate)
-
-So benchmarks are about *measurement after setup*; `llm-fit` is about *choosing before setup*.
-
-## Community benchmark submissions
-
-A standard submission template is included:
-- `benchmark-submission.example.json`
-- contribution guide: `CONTRIBUTING.md`
-
-This lets us improve estimator quality with real hardware data.
+- **Built for real laptops, not lab servers** – llm-fit focuses on what actually runs well on common Mac/PC hardware (RAM/VRAM tiers, CPU classes), instead of abstract throughput numbers from big server GPUs.
+- **Opinionated presets over config soup** – instead of making you tune dozens of knobs, llm-fit gives curated presets for typical machines (e.g., "8GB MacBook Air", "32GB workstation") and recommends models that *fit*.
+- **End-user workflow first** – the CLI and docs are written for people trying to get work done (chat, coding, local agents), not just benchmark graphs; every command is meant to be copy–paste runnable.
 
 ## Next milestones
 
 - [ ] Auto-detect machine hardware
-- [x] Add benchmark submission JSON format
 - [ ] Pull benchmark data from community submissions
 - [ ] Add GGUF quant-specific estimates (Q2_K/Q4_K_M/Q8_0)
 - [ ] One-click export for Ollama / vLLM / llama.cpp
-
-## Run from anywhere
-
-```bash
-cd llm-fit
-npm link
-llm-fit --detect
-```
 
 ## License
 MIT

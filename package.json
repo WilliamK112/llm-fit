@@ -4,7 +4,14 @@
   "description": "Can my laptop run this model? Instant local LLM fit + speed estimator.",
   "type": "module",
   "bin": {
-    "llm-fit": "./src/cli.mjs"
+    "llm-fit": "./src/cli.mjs",
+    "llm-fit-detect": "./src/detect.mjs"
+  },
+  "scripts": {
+    "cli": "node src/cli.mjs",
+    "detect": "node src/detect.mjs",
+    "web": "node scripts/web-server.mjs",
+    "start": "node scripts/web-server.mjs"
   },
   "scripts": {
     "cli": "node src/cli.mjs",

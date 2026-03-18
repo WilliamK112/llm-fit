@@ -1,41 +1,45 @@
-import { execSync } from 'node:child_process';
+#!/usr/bin/env node
+import os from 'os';
+import { estimateFit } from './core.mjs';
 
-function parseAppleSiliconChip(spText = '') {
-  const chipMatch = spText.match(/Chip:\s*(.+)/i);
-  const memMatch = spText.match(/Memory:\s*(\d+)\s*GB/i);
-  const chip = chipMatch ? chipMatch[1].trim() : 'Apple Silicon';
-  const ramGB = memMatch ? Number(memMatch[1]) : 16;
+function detectProfile() {
+  const totalMemGB = Math.round(os.totalmem() / (1024 ** 3));
 
-  const lowEnd = /M1\b|M2\b/i.test(chip);
-  const highEnd = /M3 Max|M3 Ultra|M4 Pro|M4 Max|M4 Ultra|M2 Max|M2 Ultra|M1 Max|M1 Ultra/i.test(chip);
-  const cpuTier = highEnd ? 'high' : (lowEnd ? 'mid' : 'mid');
+  // Very rough CPU tier heuristic based on core count
+  const cores = os.cpus()?.length ?? 4;
+  let cpuTier = 'mid';
+  if (cores <= 4) cpuTier = 'low';
+  else if (cores >= 10) cpuTier = 'high';
+
+  // We can’t reliably detect VRAM cross‑platform without extra deps;
+  // use a conservative placeholder and let the user override.
+  const vramGB = 8;
+
+  // Platform mapping
+  const platform = (() => {
+    const p = os.platform();
+    if (p === 'darwin') return 'apple-silicon';
+    if (p === 'win32') return 'windows';
+    return 'linux';
+  })();
 
   return {
-    platform: 'apple-silicon',
+    ramGB: totalMemGB,
+    vramGB,
     cpuTier,
-    ramGB,
-    vramGB: Math.max(8, Math.floor(ramGB * 0.5)),
-    source: 'system_profiler',
-    chip,
+    platform,
   };
 }
 
-export function detectHardware() {
-  try {
-    if (process.platform === 'darwin') {
-      const out = execSync('system_profiler SPHardwareDataType', { encoding: 'utf8' });
-      return parseAppleSiliconChip(out);
-    }
-  } catch {
-    // fall through to defaults
-  }
+const profile = detectProfile();
+const rows = estimateFit(profile);
 
-  return {
-    platform: 'cpu',
-    cpuTier: 'mid',
-    ramGB: 16,
-    vramGB: 0,
-    source: 'fallback',
-    chip: 'unknown',
-  };
+console.log('\nllm-fit — Auto-detected laptop profile (experimental)\n');
+console.log(`Profile: RAM ${profile.ramGB}GB | VRAM ${profile.vramGB}GB (est.) | CPU ${profile.cpuTier} | ${profile.platform}`);
+console.log('\nTip: override any field with flags, e.g. `llm-fit --ram=32 --vram=16`.');
+
+for (const r of rows) {
+  console.log(`${r.status}  ${r.name}`);
+  console.log(`   ~${r.estTokSec} tok/s | min VRAM ${r.minVramGB}GB | cmd: ${r.cmd}`);
+  console.log(`   ${r.reason}\n`);
 }
