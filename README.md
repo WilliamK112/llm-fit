@@ -85,6 +85,13 @@ This project follows a modular structure with clear separation between interface
 If this repo is a library or static project, refer to scripts/config files for exact commands.
 
 
+## Author and Portfolio
+
+This project is by [William Kang (Ching-Wei Kang)](https://williamkang.com/about-william-kang.html), a UW-Madison Computer Science and Data Science student building AI products, backend systems, and developer tools.
+
+See the canonical project profile at [williamkang.com/william-kang-projects.html](https://williamkang.com/william-kang-projects.html).
+
+
 ## Current Scope
 
 This repository reflects the project’s current implementation and active direction. Planned improvements are tracked through issues/commits and may evolve over time.
