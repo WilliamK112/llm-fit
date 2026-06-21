@@ -91,6 +91,8 @@ This project is by [William Kang (Ching-Wei Kang)](https://williamkang.com/about
 
 See the canonical project profile at [williamkang.com/william-kang-projects.html](https://williamkang.com/william-kang-projects.html).
 
+See the exact-name identity page at [williamkang.com/ching-wei-kang.html](https://williamkang.com/ching-wei-kang.html).
+
 
 ## Current Scope
 
